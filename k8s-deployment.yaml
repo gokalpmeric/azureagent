@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: azure-devops-agent
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: azure-devops-agent
+  template:
+    metadata:
+      labels:
+        app: azure-devops-agent
+    spec:
+      containers:
+      - name: azure-devops-agent
+        image: gokalpmeric/azureagent:latest
+        env:
+        - name: AZP_URL
+          value: "https://dev.azure.com/gokalpmrc/"
+        - name: AZP_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: azure-devops-agent-secret
+              key: AZP_TOKEN
+        - name: AZP_AGENT_NAME
+          value: "testk8"
+        - name: AZP_POOL
+          value: "fedora"
