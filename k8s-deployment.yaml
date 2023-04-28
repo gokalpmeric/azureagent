@@ -24,6 +24,8 @@ spec:
               name: azure-devops-agent-secret
               key: AZP_TOKEN
         - name: AZP_AGENT_NAME
-          value: "testk8"
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
         - name: AZP_POOL
           value: "fedora"
