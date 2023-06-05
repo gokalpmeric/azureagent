@@ -23,6 +23,6 @@ steps:
   inputs:
     action: 'deploy'
     connectionType: 'kubernetesServiceConnection'
-    kubernetesServiceConnection: 'rancher-with-kubernetesdefault'
+    kubernetesServiceConnection: 'ranchertestlast'
     namespace: 'default'
     manifests: 'k8s-deployment.yaml'
