@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: azure-devops-agent
+  name: azure-devops-agent-proof
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: azure-devops-agent
+      app: azure-devops-agent-proof
   template:
     metadata:
       labels:
-        app: azure-devops-agent
+        app: azure-devops-agent-proof
     spec:
       containers:
-      - name: azure-devops-agent
+      - name: azure-devops-agent-proof
         image: gokalpmeric/azureagent:latest
         env:
         - name: AZP_URL
