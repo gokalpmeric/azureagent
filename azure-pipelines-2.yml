@@ -22,7 +22,7 @@ steps:
 - task: Kubernetes@1
   inputs:
     connectionType: 'Kubernetes Service Connection'
-    kubernetesServiceEndpoint: 'rancher-with-kubernetesdefault'
+    kubernetesServiceEndpoint: 'ranchertestlast'
     namespace: 'default'
     command: 'get'
     arguments: 'pods'
