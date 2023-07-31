@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: azure-devops-agent-proof
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: azure-devops-agent-proof
