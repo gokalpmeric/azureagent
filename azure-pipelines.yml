@@ -15,4 +15,3 @@ steps:
     containerRegistry: 'dockerhub-gokalp'  # Use the service connection name you created earlier
     repository: 'gokalpmeric/azureagentargo'  # Replace with your Docker Hub username and image repository name
     Dockerfile: '**/Dockerfile'  # Path to your Dockerfile
-    tags: 'latest'  # Replace with desired tags for your Docker image
