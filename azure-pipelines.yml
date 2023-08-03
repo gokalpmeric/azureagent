@@ -4,7 +4,7 @@ trigger:
       - main  # Change this to your desired branch
 
 pool:
-  pool: 'fedora'
+  name: 'fedora'
 
 steps:
 - task: Docker@2
