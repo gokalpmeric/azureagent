@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: azure-devops-agent-proof
-        image: alperanfk/agent8:latest
+        image: gokalpmeric/azurewperm:0.0.1
         env:
         - name: AZP_URL
           value: "https://dev.azure.com/gokalpmrc/"
