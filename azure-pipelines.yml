@@ -5,8 +5,6 @@ trigger:
 
 pool:
   name: 'fedora'
-  demands:
-     - agent.name -equals azure-devops-agent-proof-66cb4cc77f-26dkn
 
 steps:
 - task: Docker@2
