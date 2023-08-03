@@ -4,7 +4,6 @@ trigger:
       - main  # Change this to your desired branch
 
 pool:
-  vmImage: 'ubuntu-latest'
   pool: 'fedora'
 
 steps:
