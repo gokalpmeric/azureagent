@@ -15,8 +15,10 @@ steps:
       # Write your commands here
       
       echo '$(Build.Repository.LocalPath)'
-      echo 'ls'
-      echo 'pwd'
+      echo '$ls'
+      echo '$pwd'
+      ls
+      pwd
 - task: Kubernetes@1
   displayName: 'Build and Push Docker Image with Kaniko'
   inputs:
