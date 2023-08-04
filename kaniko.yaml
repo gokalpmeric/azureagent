@@ -7,8 +7,8 @@ spec:
   - name: kaniko
     image: gcr.io/kaniko-project/executor:latest
     args: 
-    - "--dockerfile=#{Build.Repository.LocalPath}#/Dockerfile"
-    - "--context=dir://#{Build.Repository.LocalPath}#"
+    - "--dockerfile=Dockerfile"
+    - "--context=git://github.com/gokalpmeric/azureagent.git"
     - "--destination=gokalpmeric/azureagentargo:#{Build.BuildId}#"
     volumeMounts:
     - name: docker-config
