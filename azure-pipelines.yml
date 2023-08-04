@@ -7,10 +7,28 @@ pool:
   name: 'magic'
 
 steps:
-- task: Docker@2
-  displayName: 'Build and push Docker image'
+- checkout: self
+
+- task: Kubernetes@1
+  displayName: 'Build and Push Docker Image with Kaniko'
   inputs:
-    command: 'buildAndPush'
-    containerRegistry: 'dockerhub-gokalp'  # Use the service connection name you created earlier
-    repository: 'gokalpmeric/azureagentargo'  # Replace with your Docker Hub username and image repository name
-    Dockerfile: '**/Dockerfile'  # Path to your Dockerfile
+    connectionType: 'Kubernetes Service Connection'
+    kubernetesServiceEndpoint: 'fedoradockerdesktop'
+    namespace: 'default'
+    command: 'apply'
+    arguments: '-f $(Build.Repository.LocalPath)/kaniko.yaml'
+    secretType: 'dockerRegistry'
+    containerRegistryType: 'Container Registry'
+    dockerRegistryEndpoint: 'dockerhub-gokalp'
+    secrets: |
+      {
+        "auths":{
+           "https://index.docker.io/v1/":{
+              "auth":"$(base64DockerAuth)"
+           }
+        }
+      }
+
+- script: |
+    kubectl delete pod kaniko --ignore-not-found
+  displayName: 'Delete Kaniko Pod'
