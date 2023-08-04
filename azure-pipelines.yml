@@ -19,6 +19,10 @@ steps:
       echo '$pwd'
       ls
       pwd
+- task: FileTransform@1
+  inputs:
+    fileType: 'yaml'
+    targetFiles: '**/kaniko.yaml'
 - task: Kubernetes@1
   displayName: 'Build and Push Docker Image with Kaniko'
   inputs:
@@ -38,5 +42,3 @@ steps:
            }
         }
       }
-
-
