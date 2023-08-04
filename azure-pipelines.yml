@@ -4,7 +4,7 @@ trigger:
       - main  # Change this to your desired branch
 
 pool:
-  name: 'fedora'
+  name: 'magic'
 
 steps:
 - task: Docker@2
