@@ -29,6 +29,4 @@ steps:
         }
       }
 
-- script: |
-    kubectl delete pod kaniko --ignore-not-found
-  displayName: 'Delete Kaniko Pod'
+
