@@ -31,11 +31,4 @@ steps:
     secretType: 'dockerRegistry'
     containerRegistryType: 'Container Registry'
     dockerRegistryEndpoint: 'dockerhub-gokalp'
-    secrets: |
-      {
-        "auths":{
-           "https://index.docker.io/v1/":{
-              "auth":"$(base64DockerAuth)"
-           }
-        }
-      }
+    forceUpdate: false
