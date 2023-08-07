@@ -8,7 +8,7 @@ spec:
     image: gcr.io/kaniko-project/executor:latest
     args:
     - "--dockerfile=Dockerfile"
-    - "--context=git://github.com/gokalpmeric/azureagent.git
+    - "--context=git://github.com/gokalpmeric/azureagent.git"
     - "--destination=gokalpmeric/azureagentargo:azure"
     volumeMounts:
     - name: kaniko-secret
