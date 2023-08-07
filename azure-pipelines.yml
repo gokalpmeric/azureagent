@@ -4,8 +4,6 @@ trigger:
 pool:
   name:'magic'
 
-variables:
-  # Define any necessary variables here
 
 stages:
 - stage: BuildAndPushImage
