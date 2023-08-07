@@ -1,34 +1,30 @@
 trigger:
-  branches:
-    include:
-      - main  # Change this to your desired branch
+- main
 
 pool:
-  name: 'magic'
+  name:'magic'
 
-steps:
-- checkout: self
-- task: Bash@3
-  inputs:
-    targetType: 'inline'
-    script: |
-      # Write your commands here
-      
-      echo '$(Build.Repository.LocalPath)'
-      echo '$ls'
-      echo '$pwd'
-      ls
-      pwd
+variables:
+  # Define any necessary variables here
 
-- task: Kubernetes@1
-  displayName: 'Build and Push Docker Image with Kaniko'
-  inputs:
-    connectionType: 'Kubernetes Service Connection'
-    kubernetesServiceEndpoint: 'fedoradockerdesktop'
-    namespace: 'default'
-    command: 'apply'
-    arguments: '-f $(Build.Repository.LocalPath)/kaniko.yaml'
-    secretType: 'dockerRegistry'
-    containerRegistryType: 'Container Registry'
-    dockerRegistryEndpoint: 'dockerhub-gokalp'
-    forceUpdate: false
+stages:
+- stage: BuildAndPushImage
+  jobs:
+  - job: BuildAndPushImage
+    steps:
+    - checkout: self  # Checks out the code from your repository
+
+    - task: Kubernetes@1
+      inputs:
+        connectionType: 'Kubernetes Service Connection'
+        kubernetesServiceEndpoint: 'fedoradockerdesktop'
+        namespace: 'default'
+        command: 'apply'
+        arguments: '-f kaniko.yml'
+        secretType: 'dockerRegistry'
+        containerRegistryType: 'Azure Container Registry'
+
+    - script: |
+        # Wait for Kaniko Pod to complete
+        kubectl wait --for=condition=complete --timeout=600s pod/kaniko
+      displayName: 'Wait for Kaniko Pod to Complete'
