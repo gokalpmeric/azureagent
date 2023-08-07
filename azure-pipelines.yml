@@ -18,7 +18,7 @@ stages:
         kubernetesServiceEndpoint: 'fedoradockerdesktop'
         namespace: 'default'
         command: 'apply'
-        arguments: '-f kaniko.yml'
+        arguments: '-f kaniko.yaml'
         secretType: 'dockerRegistry'
         containerRegistryType: 'Azure Container Registry'
 
