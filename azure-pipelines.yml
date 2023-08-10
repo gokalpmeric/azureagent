@@ -15,7 +15,7 @@ stages:
     - task: Kubernetes@1
       inputs:
         connectionType: 'Kubernetes Service Connection'
-        kubernetesServiceEndpoint: 'macrancherdesktop'
+        kubernetesServiceEndpoint: 'macrancherdesktopwithkubernetesdefault'
         namespace: 'default'
         command: 'apply'
         arguments: '-f kaniko.yaml'
