@@ -17,8 +17,8 @@ stages:
         connectionType: 'Kubernetes Service Connection'
         kubernetesServiceEndpoint: 'macrancherdesktopwithkubernetesdefault'
         namespace: 'default'
-        command: 'apply'
-        arguments: '-f kaniko.yaml'
+        command: 'get'
+        arguments: 'pods'
         secretType: 'dockerRegistry'
         containerRegistryType: 'Azure Container Registry'
 
