@@ -17,7 +17,7 @@ stages:
         connectionType: 'Kubernetes Service Connection'
         kubernetesServiceEndpoint: 'fedoradockerdesktop'
         namespace: 'default'
-        command: 'get'
+        command: 'apply'
         arguments: '-f kaniko.yaml'
         secretType: 'dockerRegistry'
         containerRegistryType: 'Azure Container Registry'
