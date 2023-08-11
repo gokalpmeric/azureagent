@@ -15,10 +15,10 @@ stages:
     - task: Kubernetes@1
       inputs:
         connectionType: 'Kubernetes Service Connection'
-        kubernetesServiceEndpoint: 'macrancherdesktopwithkubernetesdefault'
+        kubernetesServiceEndpoint: 'fedoradockerdesktop'
         namespace: 'default'
         command: 'get'
-        arguments: 'pods'
+        arguments: '-f kaniko.yaml'
         secretType: 'dockerRegistry'
         containerRegistryType: 'Azure Container Registry'
 
