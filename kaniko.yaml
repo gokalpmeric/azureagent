@@ -21,3 +21,5 @@ spec:
       items:
         - key: .dockerconfigjson
           path: config.json
+  imagePullSecrets:
+  - name: gokalpsecretpassword
