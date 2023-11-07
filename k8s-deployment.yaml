@@ -21,7 +21,7 @@ spec:
         - name: AZP_TOKEN
           valueFrom:
             secretKeyRef:
-              name: azure-devops-agent-secret1
+              name: azure-devops-agent-secret
               key: AZP_TOKEN
         - name: AZP_AGENT_NAME
           valueFrom:
